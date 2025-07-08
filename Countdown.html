@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5PM Club | 24-Hour Hackathon</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5A52E0;
+            --secondary: #00D1FF;
+            --accent: #FF2D75;
+            --dark: #0F0F1F;
+            --darker: #0A0A15;
+            --light: #F8F9FA;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glow: 0 0 15px rgba(108, 99, 255, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Logo with floating animation */
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--glow);
+            animation: float 6s ease-in-out infinite;
+            border: 3px solid var(--secondary);
+        }
+
+        .logo-inner {
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 2rem;
+            border: 2px solid var(--secondary);
+        }
+
+        /* Main heading with gradient text */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+            max-width: 700px;
+            opacity: 0.9;
+        }
+
+        /* Glassmorphism card */
+        .event-info {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-info p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* 3D Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            perspective: 1000px;
+        }
+
+        .countdown-item {
+            background: rgba(15, 15, 31, 0.6);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            min-width: 120px;
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            background: rgba(108, 99, 255, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--light);
+            line-height: 1;
+            text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+            color: var(--secondary);
+            opacity: 0.8;
+        }
+
+        /* Futuristic CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 25px rgba(108, 99, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(108, 99, 255, 0.6);
+            letter-spacing: 1px;
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .social-link:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Confetti (hidden by default) */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .countdown {
+                gap: 1rem;
+            }
+            
+            .countdown-item {
+                min-width: 90px;
+                padding: 1.2rem 0.5rem;
+            }
+            
+            .countdown-value {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 1rem 0.5rem;
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <div class="logo-inner">5PM Club</div>
+        </div>
+
+        <h1>24-Hour Hackathon</h1>
+        <h2>Join the ultimate coding challenge on Saturday at 6PM</h2>
+
+        <!-- Glassmorphism Card -->
+        <div class="event-info">
+            <p>The <span class="highlight">5PM Club</span> from <span class="highlight">Sri Ramakrishna Engineering College Mens Hostel - 1 IT Boiz</span> presents a high-intensity <span class="highlight">24-hour hackathon</span>.</p>
+            <p>Compete with the best coders, attend and <span class="highlight">Learn</span>, and build something extraordinary.</p>
+            <p>Winners will receive exclusive prizes and recognition.</p>
+        </div>
+
+        <!-- 3D Countdown Timer -->
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <button class="cta-button" id="registerBtn">Register Now</button>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Organized by 5PM Club | Sri Ramakrishna Engineering College Mens Hostel - 1  IT - Boiz
+        </div>
+    </div>
+
+    <!-- Confetti Container (Hidden) -->
+    <canvas id="confetti" class="confetti"></canvas>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // ====== COUNTDOWN TIMER ======
+        function getNextSaturday6PM() {
+            const now = new Date();
+            const nextSaturday = new Date();
+            
+            nextSaturday.setDate(now.getDate() + (6 - now.getDay() + 7) % 7);
+            nextSaturday.setHours(18, 0, 0, 0);
+            
+            if (nextSaturday < now) {
+                nextSaturday.setDate(nextSaturday.getDate() + 7);
+            }
+            
+            return nextSaturday;
+        }
+        
+        const countDownDate = getNextSaturday6PM().getTime();
+        
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Smooth transitions
+            animateValue("days", days.toString().padStart(2, '0'));
+            animateValue("hours", hours.toString().padStart(2, '0'));
+            animateValue("minutes", minutes.toString().padStart(2, '0'));
+            animateValue("seconds", seconds.toString().padStart(2, '0'));
+            
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector("h1").textContent = "Hackathon Live!";
+                document.querySelector("h2").textContent = "The event has started! Join now!";
+                document.getElementById("registerBtn").textContent = "Enter Arena";
+                triggerConfetti();
+            }
+        };
+        
+        const animateValue = (id, newValue) => {
+            const element = document.getElementById(id);
+            if (element.textContent !== newValue) {
+                element.style.opacity = 0;
+                element.style.transform = "translateY(10px)";
+                setTimeout(() => {
+                    element.textContent = newValue;
+                    element.style.opacity = 1;
+                    element.style.transform = "translateY(0)";
+                }, 150);
+            }
+        };
+        
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        // ====== PARTICLES.JS BACKGROUND ======
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#6C63FF" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#6C63FF", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" }
+                }
+            }
+        });
+
+        // ====== CONFETTI EFFECT ======
+        const triggerConfetti = () => {
+            const confetti = document.getElementById("confetti");
+            confetti.style.display = "block";
+            confetti.width = window.innerWidth;
+            confetti.height = window.innerHeight;
+            
+            const ctx = confetti.getContext("2d");
+            const particles = [];
+            const particleCount = 150;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * confetti.width,
+                    y: Math.random() * confetti.height - confetti.height,
+                    r: Math.random() * 4 + 1,
+                    d: Math.random() * particleCount,
+                    color: `hsl(${Math.random() * 60 + 200}, 100%, 50%)`,
+                    tilt: Math.random() * 10 - 10,
+                    tiltAngle: Math.random() * 0.1,
+                    tiltAngleIncrement: Math.random() * 0.07
+                });
+            }
+            
+            const drawConfetti = () => {
+                ctx.clearRect(0, 0, confetti.width, confetti.height);
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const p = particles[i];
+                    ctx.beginPath();
+                    ctx.lineWidth = p.r;
+                    ctx.strokeStyle = p.color;
+                    ctx.moveTo(p.x + p.tilt, p.y);
+                    ctx.lineTo(p.x + p.tilt + p.r * 2, p.y);
+                    ctx.stroke();
+                    
+                    p.tiltAngle += p.tiltAngleIncrement;
+                    p.y += (Math.cos(p.d) + 1 + p.r / 2) / 2;
+                    p.tilt = Math.sin(p.tiltAngle) * 15;
+                    
+                    if (p.y > confetti.height) {
+                        particles[i] = {
+                            x: Math.random() * confetti.width,
+                            y: -10,
+                            r: p.r,
+                            d: p.d,
+                            color: p.color,
+                            tilt: p.tilt,
+                            tiltAngle: p.tiltAngle,
+                            tiltAngleIncrement: p.tiltAngleIncrement
+                        };
+                    }
+                }
+                
+                requestAnimationFrame(drawConfetti);
+            };
+            
+            drawConfetti();
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                confetti.style.display = "none";
+            }, 5000);
+        };
+
+        // ====== CTA BUTTON EFFECT ======
+        document.getElementById("registerBtn").addEventListener("click", () => {
+            // In a real app, redirect to registration
+            alert("Redirecting to registration...");
+        });
+    </script>
+</body>
+</html>
