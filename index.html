@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hostel Hack Jam 2025 - SREC</title>
+    <title>hackathOFF 2025 - SREC</title>
     <style>
         * {
             margin: 0;
@@ -115,19 +115,19 @@
         }
 
         .countdown-item {
-            background: rgba(255, 107, 107, 0.1);
-            border: 2px solid #ff6b6b;
-            border-radius: 15px;
-            padding: 20px;
-            min-width: 100px;
-            text-align: center;
-            animation: pulse 2s infinite;
+            background: rgba(156, 39, 176, 0.1); /* Changed from rgba(255, 107, 107, 0.1) */
+    border: 2px solid #9c27b0; /* Changed from #ff6b6b */
+    border-radius: 15px;
+    padding: 20px;
+    min-width: 100px;
+    text-align: center;
+    animation: pulse 2s infinite;
         }
 
         .countdown-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ff6b6b;
+           font-size: 2.5rem;
+    font-weight: 700;
+    color: #9c27b0; /* Changed from #ff6b6b */
         }
 
         .countdown-label {
@@ -139,9 +139,9 @@
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(156, 39, 176, 0.7); } /* Changed color */
+    70% { box-shadow: 0 0 0 10px rgba(156, 39, 176, 0); } /* Changed color */
+    100% { box-shadow: 0 0 0 0 rgba(156, 39, 176, 0); } /* Changed color */
         }
 
         .cta-button {
@@ -513,7 +513,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Hostel Hack Jam 2025</h1>
+        <h1>HackathOFF 2025</h1>
         <p>Code with vibes. Build with fun. No pressure. Just creation.</p>
         
         <div class="countdown" id="countdown">
@@ -535,7 +535,7 @@
             </div>
         </div>
 
-        <a href="#register" class="cta-button">Register Now</a>
+        <a href="https://forms.gle/nyqS5Qng9oNz1fqi7" class="cta-button" target="_blank">Register Now</a>
     </section>
 
     <!-- About Section -->
@@ -671,20 +671,20 @@
     <section class="registration" id="register">
         <h2>Ready to Join the Fun?</h2>
         <p>Form your duo and register together!</p>
-        <a href="https://forms.google.com/your-form-link" class="cta-button">Register Now</a>
+        <a href="https://forms.gle/nyqS5Qng9oNz1fqi7" class="cta-button" target="_blank">Register Now</a>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p class="credits">Organized by Ladson A and the IT Department, SREC</p>
-        <p>Made with code in our hostel room</p>
+        <p class="credits">Organized by IT Department Hostel Boys, SREC</p>
+        <p>Made with AI in our hostel room</p>
     </footer>
 
     <script>
         // Countdown Timer
         function updateCountdown() {
-            // Set your event date here (Year, Month-1, Day, Hour, Minute)
-            const eventDate = new Date(2025, 2, 15, 10, 0, 0).getTime(); // March 15, 2025, 10:00 AM
+            // Set to July 12, 2025 at 6:00 PM
+            const eventDate = new Date(2025, 6, 12, 18, 0, 0).getTime();
             const now = new Date().getTime();
             const distance = eventDate - now;
 
@@ -699,7 +699,7 @@
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
 
             if (distance < 0) {
-                document.getElementById('countdown').innerHTML = "<h2>Event Started!</h2>";
+                document.getElementById('countdown').innerHTML = "<div class='countdown-item'><div class='countdown-number'>00</div><div class='countdown-label'>Event Ended</div></div>";
             }
         }
 
