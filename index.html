@@ -3,22 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5PM Club | 24-Hour Hackathon</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Hostel Hack Jam 2025 - SREC</title>
     <style>
-        :root {
-            --primary: #6C63FF;
-            --primary-dark: #5A52E0;
-            --secondary: #00D1FF;
-            --accent: #FF2D75;
-            --dark: #0F0F1F;
-            --darker: #0A0A15;
-            --light: #F8F9FA;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glow: 0 0 15px rgba(108, 99, 255, 0.5);
-        }
         * {
             margin: 0;
             padding: 0;
@@ -26,504 +12,761 @@
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
             overflow-x: hidden;
-            position: relative;
+            line-height: 1.6;
         }
 
-        /* Particle Background */
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Logo with floating animation */
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 2rem;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--glow);
-            animation: float 6s ease-in-out infinite;
-            border: 3px solid var(--secondary);
-        }
-
-        .logo-inner {
-            width: 90%;
-            height: 90%;
-            border-radius: 50%;
-            background: var(--dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-weight: 700;
-            font-size: 2rem;
-            border: 2px solid var(--secondary);
-        }
-
-        /* Main heading with gradient text */
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 1px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 3rem;
-            color: var(--secondary);
-            max-width: 700px;
-            opacity: 0.9;
-        }
-
-        /* Glassmorphism card */
-        .event-info {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            width: 100%;
-            max-width: 800px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .event-info:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .event-info p {
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .highlight {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
-        /* 3D Countdown */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-            perspective: 1000px;
-        }
-
-        .countdown-item {
-            background: rgba(15, 15, 31, 0.6);
-            border-radius: 12px;
-            padding: 1.5rem 1rem;
-            min-width: 120px;
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-        }
-
-        .countdown-item:hover {
-            transform: translateY(-8px) rotateX(5deg);
-            background: rgba(108, 99, 255, 0.1);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .countdown-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--light);
-            line-height: 1;
-            text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .countdown-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 0.5rem;
-            color: var(--secondary);
-            opacity: 0.8;
-        }
-
-        /* Futuristic CTA Button */
-        .cta-button {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            padding: 1.2rem 3rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 5px 25px rgba(108, 99, 255, 0.4);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(108, 99, 255, 0.6);
-            letter-spacing: 1px;
-        }
-
-        .cta-button:active {
-            transform: translateY(0);
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: 0.5s;
-            z-index: -1;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .social-link {
-            color: var(--light);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            opacity: 0.7;
-        }
-
-        .social-link:hover {
-            color: var(--secondary);
-            transform: translateY(-3px);
-            opacity: 1;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: var(--medium-gray);
-            opacity: 0.7;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        /* Confetti (hidden by default) */
-        .confetti {
+        /* Animated background particles */
+        .bg-particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1000;
-            display: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ffff;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Header */
+        .header {
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #00ffff;
+        }
+
+        .college-logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .college-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            margin-bottom: 5px;
+        }
+
+        .college-subtitle {
+            font-size: 1rem;
+            color: #ff6b6b;
+            font-style: italic;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 3s ease infinite;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #b8b8b8;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid #ff6b6b;
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 100px;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #b8b8b8;
+            text-transform: uppercase;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            animation: bounce 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #4ecdc4;
+            text-shadow: 0 0 10px #4ecdc4;
+        }
+
+        /* About Section */
+        .about-content {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #b8b8b8;
+        }
+
+        .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        /* Ideas Grid */
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .idea-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #4ecdc4;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(78, 205, 196, 0.3);
+            border-color: #ff6b6b;
+        }
+
+        .idea-card h3 {
+            color: #4ecdc4;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .idea-note {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: #ff6b6b;
+            font-size: 1.1rem;
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tool-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #45b7d1;
+            padding: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .tool-name {
+            color: #45b7d1;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Prizes Section */
+        .prizes-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .prize-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            min-width: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .prize-first {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .prize-second {
+            border-color: #c0c0c0;
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.3);
+        }
+
+        .prize-third {
+            border-color: #cd7f32;
+            box-shadow: 0 0 20px rgba(205, 127, 50, 0.3);
+        }
+
+        .prize-card:hover {
+            transform: scale(1.05);
+        }
+
+        .prize-emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .prize-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Schedule Section */
+        .schedule-timeline {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .schedule-time {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .schedule-content {
+            margin-left: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 10px;
+            flex: 1;
+        }
+
+        /* Registration Section */
+        .registration {
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid #ff6b6b;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .registration h2 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        .registration p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #b8b8b8;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid #4ecdc4;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            color: #b8b8b8;
+        }
+
+        .credits {
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        /* Team Name Generator */
+        .team-generator {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .generator-button {
+            background: linear-gradient(45deg, #45b7d1, #96ceb4);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .generator-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(69, 183, 209, 0.4);
+        }
+
+        .generated-name {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #96ceb4;
+            font-weight: bold;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            h1 {
+            .hero h1 {
                 font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 1.2rem;
             }
             
             .countdown {
-                gap: 1rem;
+                gap: 10px;
             }
             
             .countdown-item {
-                min-width: 90px;
-                padding: 1.2rem 0.5rem;
+                min-width: 80px;
+                padding: 15px;
             }
             
-            .countdown-value {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 1.5rem;
-            }
-            
-            .countdown-item {
-                min-width: 70px;
-                padding: 1rem 0.5rem;
-            }
-            
-            .countdown-value {
+            .countdown-number {
                 font-size: 2rem;
             }
             
-            .cta-button {
-                padding: 1rem 2rem;
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .prizes-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .registration {
+                padding: 30px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Particle Background -->
-    <div id="particles-js"></div>
+    <!-- Background Particles -->
+    <div class="bg-particles" id="particles"></div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Logo -->
-        <div class="logo">
-            <div class="logo-inner">5PM Club</div>
-        </div>
+    <!-- Header -->
+    <header class="header">
+        <!-- Replace this with your college logo -->
+        <img src="/placeholder.svg?height=80&width=300" alt="SREC Logo" class="college-logo">
+        <div class="college-name">Sri Ramakrishna Engineering College</div>
+        <div class="college-subtitle">An AUTONOMOUS Institution</div>
+    </header>
 
-        <h1>24-Hour Hackathon</h1>
-        <h2>Join the ultimate coding challenge on Saturday at 6PM</h2>
-
-        <!-- Glassmorphism Card -->
-        <div class="event-info">
-            <p>The <span class="highlight">5PM Club</span> from <span class="highlight">Sri Ramakrishna Engineering College Mens Hostel - 1 IT Boiz</span> presents a high-intensity <span class="highlight">24-hour hackathon</span>.</p>
-            <p>Join us for <span class="highlight">24 hours of non-stop innovation</span> where you'll push your limits, collaborate with the best, and create something extraordinary.</p>
-        </div>
-
-        <!-- 3D Countdown Timer -->
-        <div class="countdown">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Hostel Hack Jam 2025</h1>
+        <p>Code with vibes. Build with fun. No pressure. Just creation.</p>
+        
+        <div class="countdown" id="countdown">
             <div class="countdown-item">
-                <div class="countdown-value" id="days">00</div>
+                <div class="countdown-number" id="days">00</div>
                 <div class="countdown-label">Days</div>
             </div>
             <div class="countdown-item">
-                <div class="countdown-value" id="hours">00</div>
+                <div class="countdown-number" id="hours">00</div>
                 <div class="countdown-label">Hours</div>
             </div>
             <div class="countdown-item">
-                <div class="countdown-value" id="minutes">00</div>
+                <div class="countdown-number" id="minutes">00</div>
                 <div class="countdown-label">Minutes</div>
             </div>
             <div class="countdown-item">
-                <div class="countdown-value" id="seconds">00</div>
+                <div class="countdown-number" id="seconds">00</div>
                 <div class="countdown-label">Seconds</div>
             </div>
         </div>
 
-        <!-- Social Links -->
-        <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+        <a href="#register" class="cta-button">Register Now</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <h2>What's This All About?</h2>
+        <div class="about-content">
+            <p>Welcome to the most <span class="highlight">goofy, beginner-first, open-ended hackathon</span> you've ever seen! This isn't about competition – it's about building <span class="highlight">"whatever your creativity dreams up"</span>.</p>
+            <br>
+            <p>Technical experience? <span class="highlight">Not required!</span> We'll teach you everything you need to know. Just bring your curiosity and let's create something awesome together in our hostel!</p>
         </div>
+    </section>
 
-        <!-- Footer -->
-        <div class="footer">
-            Organized by 5PM Club | Sri Ramakrishna Engineering College Mens Hostel - 1  IT - Boiz
+    <!-- Ideas Section -->
+    <section class="section">
+        <h2>What You Can Build</h2>
+        <div class="ideas-grid">
+            <div class="idea-card">
+                <h3>🤖 Fun ChatGPT Wrapper</h3>
+                <p>Create your own AI assistant with personality!</p>
+            </div>
+            <div class="idea-card">
+                <h3>✨ Vibe-Based To-Do App</h3>
+                <p>Organize tasks based on your mood and energy!</p>
+            </div>
+            <div class="idea-card">
+                <h3>🚀 Remake GitHub But Cooler</h3>
+                <p>Add your own twist to code sharing!</p>
+            </div>
+            <div class="idea-card">
+                <h3>🎲 Something Totally Random!</h3>
+                <p>Let your imagination run wild!</p>
+            </div>
         </div>
-    </div>
+        <div class="idea-note">
+            💡 This is just inspiration — you can build whatever you want!
+        </div>
+    </section>
 
-    <!-- Confetti Container (Hidden) -->
-    <canvas id="confetti" class="confetti"></canvas>
+    <!-- Tools Section -->
+    <section class="section">
+        <h2>Tools You'll Learn</h2>
+        <div class="tools-grid">
+            <div class="tool-item">
+                <div class="tool-name">🤖 AI Tools</div>
+                <p>Master ChatGPT, Gemini, and Whisper AI to supercharge your projects</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-name">🌐 Vercel Hosting</div>
+                <p>Deploy your creations to the web in seconds</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-name">💻 Replit & Code Basics</div>
+                <p>Learn HTML, CSS, JavaScript in a fun, interactive way</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-name">🎨 Design Tools</div>
+                <p>Create stunning visuals with Canva and Figma</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Prizes Section -->
+    <section class="section">
+        <h2>Epic Prizes Await!</h2>
+        <div class="prizes-container">
+            <div class="prize-card prize-first">
+                <div class="prize-emoji">🥇</div>
+                <div class="prize-title">1st Prize</div>
+                <p>Personalized LinkedIn & GitHub Profile Optimization</p>
+            </div>
+            <div class="prize-card prize-second">
+                <div class="prize-emoji">🥈</div>
+                <div class="prize-title">2nd Prize</div>
+                <p>Personalized LinkedIn Optimization</p>
+            </div>
+            <div class="prize-card prize-third">
+                <div class="prize-emoji">🥉</div>
+                <div class="prize-title">3rd Prize</div>
+                <p>Personalized GitHub Optimization</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Name Generator -->
+    <section class="section">
+        <div class="team-generator">
+            <h3>Need a Team Name?</h3>
+            <button class="generator-button" onclick="generateTeamName()">Generate Random Team Name</button>
+            <div class="generated-name" id="teamName"></div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="section">
+        <h2>24-Hour Schedule</h2>
+        <div class="schedule-timeline">
+            <div class="schedule-item">
+                <div class="schedule-time">10:00 - 12:00</div>
+                <div class="schedule-content">
+                    <strong>Learn AI Tools + Vibe Coding</strong><br>
+                    Get familiar with the tools and start vibing!
+                </div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">12:00 - 13:00</div>
+                <div class="schedule-content">
+                    <strong>Team Formation + Idea Picking</strong><br>
+                    Find your coding buddy and pick your wild idea!
+                </div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">13:00 - 21:00</div>
+                <div class="schedule-content">
+                    <strong>Build Time</strong><br>
+                    The main event! Code, create, and have fun!
+                </div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">21:00 - 10:00</div>
+                <div class="schedule-content">
+                    <strong>Night Coding + Snacks</strong><br>
+                    Late night coding session with unlimited snacks!
+                </div>
+            </div>
+            <div class="schedule-item">
+                <div class="schedule-time">10:00 - 12:00</div>
+                <div class="schedule-content">
+                    <strong>Demos + Awards</strong><br>
+                    Show off your creation and celebrate!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration" id="register">
+        <h2>Ready to Join the Fun?</h2>
+        <p>Form your duo and register together!</p>
+        <a href="https://forms.google.com/your-form-link" class="cta-button">Register Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="credits">Organized by Ladson A and the IT Department, SREC</p>
+        <p>Made with 💻 in our hostel room</p>
+    </footer>
+
     <script>
-        // ====== COUNTDOWN TIMER ======
-        function getNextSaturday6PM() {
-            const now = new Date();
-            const nextSaturday = new Date();
-            
-            nextSaturday.setDate(now.getDate() + (6 - now.getDay() + 7) % 7);
-            nextSaturday.setHours(18, 0, 0, 0);
-            
-            if (nextSaturday < now) {
-                nextSaturday.setDate(nextSaturday.getDate() + 7);
-            }
-            
-            return nextSaturday;
-        }
-        
-        const countDownDate = getNextSaturday6PM().getTime();
-        
-        const updateCountdown = () => {
+        // Countdown Timer
+        function updateCountdown() {
+            // Set your event date here (Year, Month-1, Day, Hour, Minute)
+            const eventDate = new Date(2025, 2, 15, 10, 0, 0).getTime(); // March 15, 2025, 10:00 AM
             const now = new Date().getTime();
-            const distance = countDownDate - now;
-            
+            const distance = eventDate - now;
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            // Smooth transitions
-            animateValue("days", days.toString().padStart(2, '0'));
-            animateValue("hours", hours.toString().padStart(2, '0'));
-            animateValue("minutes", minutes.toString().padStart(2, '0'));
-            animateValue("seconds", seconds.toString().padStart(2, '0'));
-            
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.querySelector("h1").textContent = "Hackathon Live!";
-                document.querySelector("h2").textContent = "The event has started! Join now!";
-                document.getElementById("registerBtn").textContent = "Enter Arena";
-                triggerConfetti();
-            }
-        };
-        
-        const animateValue = (id, newValue) => {
-            const element = document.getElementById(id);
-            if (element.textContent !== newValue) {
-                element.style.opacity = 0;
-                element.style.transform = "translateY(10px)";
-                setTimeout(() => {
-                    element.textContent = newValue;
-                    element.style.opacity = 1;
-                    element.style.transform = "translateY(0)";
-                }, 150);
-            }
-        };
-        
-        const countdownInterval = setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
 
-        // ====== PARTICLES.JS BACKGROUND ======
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#6C63FF" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#6C63FF", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "out_mode": "out" }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "grab" },
-                    "onclick": { "enable": true, "mode": "push" }
-                }
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = "<h2>🎉 Event Started! 🎉</h2>";
             }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Background Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                
+                // Random colors
+                const colors = ['#00ffff', '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Team Name Generator
+        const teamNames = [
+            "Code Ninjas", "Bug Busters", "Pixel Pirates", "Data Wizards", "Syntax Samurai",
+            "Binary Bandits", "Logic Lords", "Hack Heroes", "Cyber Crusaders", "Digital Dragons",
+            "Code Commandos", "Bit Builders", "Algo Avengers", "Script Spartans", "Tech Titans",
+            "Byte Brawlers", "Function Fighters", "Variable Vikings", "Loop Legends", "Array Assassins",
+            "Object Overlords", "Method Masters", "Class Champions", "Interface Invaders", "Exception Experts"
+        ];
+
+        function generateTeamName() {
+            const randomName = teamNames[Math.floor(Math.random() * teamNames.length)];
+            document.getElementById('teamName').textContent = randomName;
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
 
-        // ====== CONFETTI EFFECT ======
-        const triggerConfetti = () => {
-            const confetti = document.getElementById("confetti");
-            confetti.style.display = "block";
-            confetti.width = window.innerWidth;
-            confetti.height = window.innerHeight;
+        // Initialize particles when page loads
+        window.addEventListener('load', createParticles);
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.idea-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) rotateY(5deg)';
+            });
             
-            const ctx = confetti.getContext("2d");
-            const particles = [];
-            const particleCount = 150;
-            
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * confetti.width,
-                    y: Math.random() * confetti.height - confetti.height,
-                    r: Math.random() * 4 + 1,
-                    d: Math.random() * particleCount,
-                    color: `hsl(${Math.random() * 60 + 200}, 100%, 50%)`,
-                    tilt: Math.random() * 10 - 10,
-                    tiltAngle: Math.random() * 0.1,
-                    tiltAngleIncrement: Math.random() * 0.07
-                });
-            }
-            
-            const drawConfetti = () => {
-                ctx.clearRect(0, 0, confetti.width, confetti.height);
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateY(0)';
+            });
+        });
+
+        // Add click effect to CTA buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
                 
-                for (let i = 0; i < particleCount; i++) {
-                    const p = particles[i];
-                    ctx.beginPath();
-                    ctx.lineWidth = p.r;
-                    ctx.strokeStyle = p.color;
-                    ctx.moveTo(p.x + p.tilt, p.y);
-                    ctx.lineTo(p.x + p.tilt + p.r * 2, p.y);
-                    ctx.stroke();
-                    
-                    p.tiltAngle += p.tiltAngleIncrement;
-                    p.y += (Math.cos(p.d) + 1 + p.r / 2) / 2;
-                    p.tilt = Math.sin(p.tiltAngle) * 15;
-                    
-                    if (p.y > confetti.height) {
-                        particles[i] = {
-                            x: Math.random() * confetti.width,
-                            y: -10,
-                            r: p.r,
-                            d: p.d,
-                            color: p.color,
-                            tilt: p.tilt,
-                            tiltAngle: p.tiltAngle,
-                            tiltAngleIncrement: p.tiltAngleIncrement
-                        };
-                    }
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
                 }
-                
-                requestAnimationFrame(drawConfetti);
-            };
-            
-            drawConfetti();
-            
-            // Hide after 5 seconds
-            setTimeout(() => {
-                confetti.style.display = "none";
-            }, 5000);
-        };
+            }
+            .cta-button {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
