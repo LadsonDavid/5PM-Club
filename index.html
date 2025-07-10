@@ -12,11 +12,12 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
             background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             color: #ffffff;
             overflow-x: hidden;
             line-height: 1.6;
+            font-weight: 400;
         }
 
         /* Animated background particles */
@@ -53,24 +54,20 @@
             border-bottom: 2px solid #00ffff;
         }
 
-        .college-logo {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
         .college-name {
             font-size: 1.8rem;
-            font-weight: bold;
+            font-weight: 600;
             color: #00ffff;
             text-shadow: 0 0 10px #00ffff;
             margin-bottom: 5px;
+            letter-spacing: 0.5px;
         }
 
         .college-subtitle {
             font-size: 1rem;
-            color: #ff6b6b;
+            color: #64748b;
             font-style: italic;
+            font-weight: 300;
         }
 
         /* Hero Section */
@@ -82,7 +79,7 @@
 
         .hero h1 {
             font-size: 4rem;
-            font-weight: bold;
+            font-weight: 700;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
             background-size: 400% 400%;
             -webkit-background-clip: text;
@@ -106,6 +103,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 300;
         }
 
         .countdown {
@@ -128,7 +126,7 @@
 
         .countdown-number {
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: 700;
             color: #ff6b6b;
         }
 
@@ -136,6 +134,8 @@
             font-size: 0.9rem;
             color: #b8b8b8;
             text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
         @keyframes pulse {
@@ -147,20 +147,22 @@
         .cta-button {
             display: inline-block;
             padding: 15px 40px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
             animation: bounce 2s infinite;
+            letter-spacing: 0.5px;
         }
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
         }
 
         @keyframes bounce {
@@ -182,6 +184,7 @@
             margin-bottom: 50px;
             color: #4ecdc4;
             text-shadow: 0 0 10px #4ecdc4;
+            font-weight: 600;
         }
 
         /* About Section */
@@ -191,11 +194,16 @@
             max-width: 800px;
             margin: 0 auto;
             color: #b8b8b8;
+            font-weight: 300;
         }
 
         .highlight {
-            color: #ff6b6b;
-            font-weight: bold;
+            color: #64748b;
+            font-weight: 600;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Ideas Grid */
@@ -226,6 +234,7 @@
             color: #4ecdc4;
             margin-bottom: 15px;
             font-size: 1.3rem;
+            font-weight: 600;
         }
 
         .idea-note {
@@ -234,6 +243,7 @@
             font-style: italic;
             color: #ff6b6b;
             font-size: 1.1rem;
+            font-weight: 300;
         }
 
         /* Tools Section */
@@ -260,7 +270,7 @@
         .tool-name {
             color: #45b7d1;
             font-size: 1.3rem;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 10px;
         }
 
@@ -309,7 +319,7 @@
 
         .prize-title {
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 10px;
         }
 
@@ -331,7 +341,7 @@
             color: white;
             padding: 10px 15px;
             border-radius: 25px;
-            font-weight: bold;
+            font-weight: 600;
             min-width: 120px;
             text-align: center;
         }
@@ -357,12 +367,14 @@
         .registration h2 {
             color: #ff6b6b;
             margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .registration p {
             font-size: 1.1rem;
             margin-bottom: 30px;
             color: #b8b8b8;
+            font-weight: 300;
         }
 
         /* Footer */
@@ -376,17 +388,23 @@
         .footer p {
             margin-bottom: 10px;
             color: #b8b8b8;
+            font-weight: 300;
         }
 
         .credits {
             color: #4ecdc4;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         /* Team Name Generator */
         .team-generator {
             margin: 30px 0;
             text-align: center;
+        }
+
+        .team-generator h3 {
+            font-weight: 600;
+            margin-bottom: 20px;
         }
 
         .generator-button {
@@ -397,7 +415,9 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 600;
             transition: all 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         .generator-button:hover {
@@ -406,10 +426,23 @@
         }
 
         .generated-name {
-            margin-top: 15px;
-            font-size: 1.2rem;
+            margin-top: 20px;
+            font-size: 1.3rem;
             color: #96ceb4;
-            font-weight: bold;
+            font-weight: 600;
+            background: rgba(150, 206, 180, 0.1);
+            border: 2px solid #96ceb4;
+            border-radius: 15px;
+            padding: 20px 30px;
+            display: inline-block;
+            min-width: 250px;
+            box-shadow: 0 5px 15px rgba(150, 206, 180, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .generated-name:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(150, 206, 180, 0.3);
         }
 
         /* Responsive Design */
@@ -447,6 +480,24 @@
             .registration {
                 padding: 30px 20px;
             }
+
+            .generated-name {
+                min-width: 200px;
+                padding: 15px 20px;
+            }
+        }
+
+        /* Ripple effect styles */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -456,8 +507,6 @@
 
     <!-- Header -->
     <header class="header">
-        <!-- Replace this with your college logo -->
-        <img src="/placeholder.svg?height=80&width=300" alt="SREC Logo" class="college-logo">
         <div class="college-name">Sri Ramakrishna Engineering College</div>
         <div class="college-subtitle">An AUTONOMOUS Institution</div>
     </header>
@@ -504,24 +553,24 @@
         <h2>What You Can Build</h2>
         <div class="ideas-grid">
             <div class="idea-card">
-                <h3>🤖 Fun ChatGPT Wrapper</h3>
-                <p>Create your own AI assistant with personality!</p>
+                <h3>Internal Team Dashboard</h3>
+                <p>Build a custom dashboard for tracking team productivity, project status, and resource allocation</p>
             </div>
             <div class="idea-card">
-                <h3>✨ Vibe-Based To-Do App</h3>
-                <p>Organize tasks based on your mood and energy!</p>
+                <h3>Developer Productivity Tool</h3>
+                <p>Create tools to automate repetitive coding tasks, manage code snippets, or streamline deployment workflows</p>
             </div>
             <div class="idea-card">
-                <h3>🚀 Remake GitHub But Cooler</h3>
-                <p>Add your own twist to code sharing!</p>
+                <h3>Collaboration Platform Clone</h3>
+                <p>Recreate features from Slack, Discord, or Notion with your own unique improvements and customizations</p>
             </div>
             <div class="idea-card">
-                <h3>🎲 Something Totally Random!</h3>
-                <p>Let your imagination run wild!</p>
+                <h3>Data Visualization System</h3>
+                <p>Transform complex datasets into interactive charts, graphs, and real-time monitoring systems</p>
             </div>
         </div>
         <div class="idea-note">
-            💡 This is just inspiration — you can build whatever you want!
+            This is just inspiration — you can build whatever you want!
         </div>
     </section>
 
@@ -530,19 +579,19 @@
         <h2>Tools You'll Learn</h2>
         <div class="tools-grid">
             <div class="tool-item">
-                <div class="tool-name">🤖 AI Tools</div>
+                <div class="tool-name">AI Development Tools</div>
                 <p>Master ChatGPT, Gemini, and Whisper AI to supercharge your projects</p>
             </div>
             <div class="tool-item">
-                <div class="tool-name">🌐 Vercel Hosting</div>
+                <div class="tool-name">Vercel Hosting</div>
                 <p>Deploy your creations to the web in seconds</p>
             </div>
             <div class="tool-item">
-                <div class="tool-name">💻 Replit & Code Basics</div>
+                <div class="tool-name">Replit & Code Basics</div>
                 <p>Learn HTML, CSS, JavaScript in a fun, interactive way</p>
             </div>
             <div class="tool-item">
-                <div class="tool-name">🎨 Design Tools</div>
+                <div class="tool-name">Design Tools</div>
                 <p>Create stunning visuals with Canva and Figma</p>
             </div>
         </div>
@@ -553,17 +602,14 @@
         <h2>Epic Prizes Await!</h2>
         <div class="prizes-container">
             <div class="prize-card prize-first">
-                <div class="prize-emoji">🥇</div>
                 <div class="prize-title">1st Prize</div>
                 <p>Personalized LinkedIn & GitHub Profile Optimization</p>
             </div>
             <div class="prize-card prize-second">
-                <div class="prize-emoji">🥈</div>
                 <div class="prize-title">2nd Prize</div>
                 <p>Personalized LinkedIn Optimization</p>
             </div>
             <div class="prize-card prize-third">
-                <div class="prize-emoji">🥉</div>
                 <div class="prize-title">3rd Prize</div>
                 <p>Personalized GitHub Optimization</p>
             </div>
@@ -575,7 +621,7 @@
         <div class="team-generator">
             <h3>Need a Team Name?</h3>
             <button class="generator-button" onclick="generateTeamName()">Generate Random Team Name</button>
-            <div class="generated-name" id="teamName"></div>
+            <div class="generated-name" id="teamName" style="display: none;"></div>
         </div>
     </section>
 
@@ -631,7 +677,7 @@
     <!-- Footer -->
     <footer class="footer">
         <p class="credits">Organized by Ladson A and the IT Department, SREC</p>
-        <p>Made with 💻 in our hostel room</p>
+        <p>Made with code in our hostel room</p>
     </footer>
 
     <script>
@@ -653,7 +699,7 @@
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
 
             if (distance < 0) {
-                document.getElementById('countdown').innerHTML = "<h2>🎉 Event Started! 🎉</h2>";
+                document.getElementById('countdown').innerHTML = "<h2>Event Started!</h2>";
             }
         }
 
@@ -688,12 +734,15 @@
             "Binary Bandits", "Logic Lords", "Hack Heroes", "Cyber Crusaders", "Digital Dragons",
             "Code Commandos", "Bit Builders", "Algo Avengers", "Script Spartans", "Tech Titans",
             "Byte Brawlers", "Function Fighters", "Variable Vikings", "Loop Legends", "Array Assassins",
-            "Object Overlords", "Method Masters", "Class Champions", "Interface Invaders", "Exception Experts"
+            "Object Overlords", "Method Masters", "Class Champions", "Interface Invaders", "Exception Experts",
+            "Hostel Hackers", "Midnight Coders", "Caffeine Crusaders", "Debug Demons", "Compile Champions"
         ];
 
         function generateTeamName() {
             const randomName = teamNames[Math.floor(Math.random() * teamNames.length)];
-            document.getElementById('teamName').textContent = randomName;
+            const teamNameElement = document.getElementById('teamName');
+            teamNameElement.textContent = randomName;
+            teamNameElement.style.display = 'inline-block';
         }
 
         // Smooth scrolling for anchor links
@@ -770,6 +819,3 @@
     </script>
 </body>
 </html>
-
-
-
