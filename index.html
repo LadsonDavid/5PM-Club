@@ -44,44 +44,70 @@
             50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
         }
 
-        /* Header */
+        /* Header - Based on uploaded image */
         .header {
-            padding: 20px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 2px solid #00ffff;
+            border-bottom: 3px solid #00ffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            min-width: 300px;
         }
 
         .college-logo {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 10px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+
+        .college-info {
+            display: flex;
+            flex-direction: column;
         }
 
         .college-name {
             font-size: 1.8rem;
-            font-weight: bold;
-            color: #00ffff;
-            text-shadow: 0 0 10px #00ffff;
-            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
         }
 
         .college-subtitle {
-            font-size: 1rem;
-            color: #ff6b6b;
-            font-style: italic;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .snr-logo {
+            height: 40px;
+            width: auto;
         }
 
         /* Hero Section */
         .hero {
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
             position: relative;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             font-weight: bold;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
             background-size: 400% 400%;
@@ -100,42 +126,52 @@
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 4vw, 1.5rem);
             color: #b8b8b8;
             margin-bottom: 30px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            padding: 0 10px;
         }
 
+        /* Enhanced Countdown Timer */
         .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+            margin: 40px auto;
+            max-width: 500px;
+            padding: 0 20px;
         }
 
         .countdown-item {
             background: rgba(255, 107, 107, 0.1);
             border: 2px solid #ff6b6b;
             border-radius: 15px;
-            padding: 20px;
-            min-width: 100px;
+            padding: 15px 10px;
             text-align: center;
             animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 107, 107, 0.2);
         }
 
         .countdown-number {
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
             font-weight: bold;
             color: #ff6b6b;
+            display: block;
         }
 
         .countdown-label {
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
             color: #b8b8b8;
             text-transform: uppercase;
+            margin-top: 5px;
         }
 
         @keyframes pulse {
@@ -151,11 +187,12 @@
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
             animation: bounce 2s infinite;
+            margin-top: 20px;
         }
 
         .cta-button:hover {
@@ -171,15 +208,15 @@
 
         /* Section Styling */
         .section {
-            padding: 80px 20px;
+            padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section h2 {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 6vw, 2.5rem);
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             color: #4ecdc4;
             text-shadow: 0 0 10px #4ecdc4;
         }
@@ -187,10 +224,11 @@
         /* About Section */
         .about-content {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             max-width: 800px;
             margin: 0 auto;
             color: #b8b8b8;
+            padding: 0 10px;
         }
 
         .highlight {
@@ -198,19 +236,20 @@
             font-weight: bold;
         }
 
-        /* Ideas Grid */
+        /* Ideas Grid - Mobile Responsive */
         .ideas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin-top: 40px;
+            padding: 0 10px;
         }
 
         .idea-card {
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid #4ecdc4;
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -225,7 +264,11 @@
         .idea-card h3 {
             color: #4ecdc4;
             margin-bottom: 15px;
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+        }
+
+        .idea-card p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
 
         .idea-note {
@@ -233,21 +276,23 @@
             margin-top: 30px;
             font-style: italic;
             color: #ff6b6b;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            padding: 0 10px;
         }
 
-        /* Tools Section */
+        /* Tools Section - Mobile Responsive */
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin-top: 40px;
+            padding: 0 10px;
         }
 
         .tool-item {
             background: rgba(255, 255, 255, 0.05);
             border-left: 4px solid #45b7d1;
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
             transition: all 0.3s ease;
         }
@@ -259,27 +304,30 @@
 
         .tool-name {
             color: #45b7d1;
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
             font-weight: bold;
             margin-bottom: 10px;
         }
 
-        /* Prizes Section */
+        .tool-item p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        /* Prizes Section - Mobile Responsive */
         .prizes-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-top: 40px;
+            padding: 0 10px;
         }
 
         .prize-card {
             background: rgba(255, 255, 255, 0.05);
             border: 3px solid;
             border-radius: 20px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
-            min-width: 250px;
             transition: all 0.3s ease;
         }
 
@@ -303,90 +351,95 @@
         }
 
         .prize-emoji {
-            font-size: 3rem;
+            font-size: clamp(2rem, 6vw, 3rem);
             margin-bottom: 15px;
         }
 
         .prize-title {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             font-weight: bold;
             margin-bottom: 10px;
         }
 
-        /* Schedule Section */
+        .prize-card p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        /* Schedule Section - Mobile Responsive */
         .schedule-timeline {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            padding: 0 10px;
         }
 
         .schedule-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 30px;
+            align-items: flex-start;
+            margin-bottom: 25px;
             position: relative;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .schedule-time {
             background: #ff6b6b;
             color: white;
-            padding: 10px 15px;
+            padding: 8px 15px;
             border-radius: 25px;
             font-weight: bold;
-            min-width: 120px;
+            font-size: clamp(0.8rem, 2.5vw, 1rem);
             text-align: center;
+            align-self: flex-start;
         }
 
         .schedule-content {
-            margin-left: 30px;
             background: rgba(255, 255, 255, 0.05);
             padding: 15px 20px;
             border-radius: 10px;
             flex: 1;
+            width: 100%;
         }
 
-        /* Registration Section */
+        .schedule-content strong {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+        }
+
+        .schedule-content br + text {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        /* Registration Section - Mobile Responsive */
         .registration {
             background: rgba(255, 107, 107, 0.1);
             border: 2px solid #ff6b6b;
             border-radius: 20px;
-            padding: 50px;
+            padding: 40px 20px;
             text-align: center;
-            margin: 40px 0;
+            margin: 40px 10px;
         }
 
         .registration h2 {
             color: #ff6b6b;
             margin-bottom: 20px;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
         }
 
         .registration p {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
             margin-bottom: 30px;
             color: #b8b8b8;
         }
 
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 2px solid #4ecdc4;
-        }
-
-        .footer p {
-            margin-bottom: 10px;
-            color: #b8b8b8;
-        }
-
-        .credits {
-            color: #4ecdc4;
-            font-weight: bold;
-        }
-
-        /* Team Name Generator */
+        /* Team Name Generator - Mobile Responsive */
         .team-generator {
             margin: 30px 0;
             text-align: center;
+            padding: 0 20px;
+        }
+
+        .team-generator h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: 15px;
         }
 
         .generator-button {
@@ -396,7 +449,7 @@
             padding: 12px 25px;
             border-radius: 25px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
             transition: all 0.3s ease;
         }
 
@@ -407,45 +460,116 @@
 
         .generated-name {
             margin-top: 15px;
-            font-size: 1.2rem;
+            font-size: clamp(1.1rem, 3vw, 1.2rem);
             color: #96ceb4;
             font-weight: bold;
         }
 
-        /* Responsive Design */
+        /* Footer - Mobile Responsive */
+        .footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 2px solid #4ecdc4;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            color: #b8b8b8;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .credits {
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        /* Mobile-specific improvements */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .header-left {
+                justify-content: center;
+                min-width: auto;
+            }
+            
+            .college-name {
+                font-size: 1.4rem;
+            }
+            
+            .college-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .hero {
+                padding: 40px 15px;
             }
             
             .countdown {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 300px;
+            }
+            
+            .section {
+                padding: 40px 15px;
+            }
+            
+            .ideas-grid,
+            .tools-grid,
+            .prizes-container {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+            
+            .schedule-item {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .schedule-time {
+                align-self: center;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .countdown {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
             }
             
             .countdown-item {
-                min-width: 80px;
-                padding: 15px;
+                padding: 10px 5px;
             }
             
-            .countdown-number {
-                font-size: 2rem;
+            .hero {
+                padding: 30px 10px;
             }
             
             .section {
-                padding: 60px 20px;
-            }
-            
-            .section h2 {
-                font-size: 2rem;
-            }
-            
-            .prizes-container {
-                flex-direction: column;
-                align-items: center;
+                padding: 30px 10px;
             }
             
             .registration {
-                padding: 30px 20px;
+                margin: 20px 5px;
+                padding: 30px 15px;
+            }
+        }
+
+        /* Ripple effect styles */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
             }
         }
     </style>
@@ -454,12 +578,16 @@
     <!-- Background Particles -->
     <div class="bg-particles" id="particles"></div>
 
-    <!-- Header -->
+    <!-- Header - Based on uploaded image -->
     <header class="header">
-        <!-- Replace this with your college logo -->
-        <img src="/placeholder.svg?height=80&width=300" alt="SREC Logo" class="college-logo">
-        <div class="college-name">Sri Ramakrishna Engineering College</div>
-        <div class="college-subtitle">An AUTONOMOUS Institution</div>
+        <div class="header-left">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-A42OV4OsqsmHeRmVvKKYHfEo23DwdX.png" alt="SREC Logo" class="college-logo">
+            <div class="college-info">
+                <div class="college-name">Sri Ramakrishna Engineering College</div>
+                <div class="college-subtitle">An AUTONOMOUS Institution</div>
+            </div>
+        </div>
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-A42OV4OsqsmHeRmVvKKYHfEo23DwdX.png" alt="SNR Logo" class="snr-logo">
     </header>
 
     <!-- Hero Section -->
@@ -635,7 +763,7 @@
     </footer>
 
     <script>
-        // Countdown Timer
+        // Enhanced Countdown Timer
         function updateCountdown() {
             // Set your event date here (Year, Month-1, Day, Hour, Minute)
             const eventDate = new Date(2025, 2, 15, 10, 0, 0).getTime(); // March 15, 2025, 10:00 AM
@@ -653,7 +781,7 @@
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
 
             if (distance < 0) {
-                document.getElementById('countdown').innerHTML = "<h2>🎉 Event Started! 🎉</h2>";
+                document.getElementById('countdown').innerHTML = "<h2 style='color: #ff6b6b; font-size: clamp(1.5rem, 5vw, 2rem);'>🎉 Event Started! 🎉</h2>";
             }
         }
 
@@ -661,10 +789,10 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Background Particles
+        // Enhanced Background Particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+            const particleCount = window.innerWidth < 768 ? 30 : 50; // Fewer particles on mobile
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -688,7 +816,8 @@
             "Binary Bandits", "Logic Lords", "Hack Heroes", "Cyber Crusaders", "Digital Dragons",
             "Code Commandos", "Bit Builders", "Algo Avengers", "Script Spartans", "Tech Titans",
             "Byte Brawlers", "Function Fighters", "Variable Vikings", "Loop Legends", "Array Assassins",
-            "Object Overlords", "Method Masters", "Class Champions", "Interface Invaders", "Exception Experts"
+            "Object Overlords", "Method Masters", "Class Champions", "Interface Invaders", "Exception Experts",
+            "Hostel Hackers", "Midnight Coders", "Caffeine Crusaders", "Debug Demons", "Compile Champions"
         ];
 
         function generateTeamName() {
@@ -710,10 +839,7 @@
             });
         });
 
-        // Initialize particles when page loads
-        window.addEventListener('load', createParticles);
-
-        // Add some interactive hover effects
+        // Enhanced interactive hover effects
         document.querySelectorAll('.idea-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-10px) rotateY(5deg)';
@@ -724,10 +850,9 @@
             });
         });
 
-        // Add click effect to CTA buttons
+        // Enhanced ripple effect for CTA buttons
         document.querySelectorAll('.cta-button').forEach(button => {
             button.addEventListener('click', function(e) {
-                // Create ripple effect
                 const ripple = document.createElement('span');
                 const rect = this.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
@@ -752,21 +877,38 @@
             });
         });
 
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
+        // Initialize particles when page loads
+        window.addEventListener('load', createParticles);
+
+        // Recreate particles on window resize for mobile optimization
+        window.addEventListener('resize', function() {
+            const particlesContainer = document.getElementById('particles');
+            particlesContainer.innerHTML = '';
+            createParticles();
+        });
+
+        // Add intersection observer for animations on scroll (mobile-friendly)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
-            }
-            .cta-button {
-                position: relative;
-                overflow: hidden;
-            }
-        `;
-        document.head.appendChild(style);
+            });
+        }, observerOptions);
+
+        // Observe all sections for scroll animations
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
